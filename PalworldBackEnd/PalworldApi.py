@@ -14,7 +14,7 @@ class PalworldRestApi:
             response = requests.request("GET", url, headers=headers, data=payload)
             return response.text
         except:
-            return "error - Can not connect to server"
+            return "error - unable to connect to server"
         
 
     def findMetrics():
