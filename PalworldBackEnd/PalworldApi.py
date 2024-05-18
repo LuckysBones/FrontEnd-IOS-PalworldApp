@@ -49,7 +49,7 @@ class PalworldRestApi:
 
     def saveWorld():
         try:
-            url = "http://localhost:8212/v1/api/save"
+            url = "http://admin:AlecSucks@localhost:8212/v1/api/save"
             payload={}
             headers = {}
             response = requests.request("POST", url, headers=headers, data=payload)
@@ -59,7 +59,7 @@ class PalworldRestApi:
     
     def shutWorld(shutdownMessage,shutdownTime):
         try:
-            url = "http://localhost:8212/v1/api/shutdown"
+            url = "http://admin:AlecSucks@localhost:8212/v1/api/shutdown"
             payload = json.dumps({
                 "waittime": shutdownTime,
                 "message": shutdownMessage

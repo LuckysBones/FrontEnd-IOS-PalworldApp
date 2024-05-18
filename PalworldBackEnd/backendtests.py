@@ -1,4 +1,5 @@
 import time
+import subprocess
 # backendtests.py
 
 # Importing the Palworld-RestApi module
@@ -16,7 +17,7 @@ def getInfo():
     result = PalworldRestApi.serverInfo()
     print(result)
 
-def pushMessage(messsage):
+def pushMessage(message):
     result = PalworldRestApi.sendMessage(message)
     print(result)
 
@@ -39,10 +40,11 @@ def test():
     time.sleep(5)
     pushMessage("***Test*** - Message sent from testunit/pushMessage")
     time.sleep(10)
-    pushShutDown("***Test*** - Message sent from testunit/pushShutDown",30)
-    time.sleep(15)
-
-
+    pushShutDown("***Test*** - Message sent from testunit/pushShutDown",10)
+    time.sleep(30)
+    runServer = "sudo systemctl restart palserver.service"
+    result = subprocess.run(runServer, shell=True, capture_output=True, text=True)
+    print(result)
 # Your main entry point code can go here
 # For example:
 if __name__ == "__main__":
