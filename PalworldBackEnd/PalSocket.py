@@ -1,43 +1,63 @@
 # main.py
+# Server side for grabbing Palworld Server stats or commands 
+# Program will also send and recive sent, info through a socketio api
 import time
 import subprocess
 import json
-import websocket
+import socketio
 import asyncio
+
+
 # Importing the PalworldRestApi module with the absolute path
 from PalworldApi import PalworldRestApi
 
-def getPlayers():
+# Grab Player Info
+def __get_players():
     result = PalworldRestApi.findPlayers()
     print(result)
 
-def getMetrics():
+# Grab Server Metrics
+def __get_metrics():
     result = PalworldRestApi.findMetrics()
     print(result)
 
-def getInfo():
+# Grab Server Info
+def __get_info():
     result = PalworldRestApi.serverInfo()
     print(result)
 
-def pushMessage(message):
+# Send a message to the Server (Pops on the in game screen)
+def __push_message(message):
     result = PalworldRestApi.sendMessage(message)
     print(result)
 
-def pushSave():
+# Server will save the game/world
+def __push_save():
     result = PalworldRestApi.saveWorld()
     print(result)
 
-def pushShutDown(shutdownMessage,shutdownTime):
+# Sever will Shutdown the server based 
+# on allotted time and a message will be sent
+def __push_shutdown(shutdownMessage,shutdownTime):
     result = PalworldRestApi.shutWorld(shutdownMessage,shutdownTime)
     print(result)
 
-# Your main entry point code can go here
-# For example:
+# Create a connection through socketio and send and recive data
+async def connect_to_client():
+    #from wsgi import app
+    app = socketio.WSGIApp(sio, static_files=__get_players())
+
+@sio.event
+async def my_event(sid, data):
+    pass
+
+@sio.on('my custom event')
+async def another_event(sid, data):
+    pass
+
+
+
+# Main entry point
 if __name__ == "__main__":
     # You can call functions or instantiate classes defined in Palworld-RestApi
-    getPlayers()
-    getMetrics()
-    getInfo()
-    pushMessage("Message Here - Ignore if seen")
-    pushSave()
-    pushShutDown("Message Here - ShutDown Happening shortly", 30)
+    connect_to_client()

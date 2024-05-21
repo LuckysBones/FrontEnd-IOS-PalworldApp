@@ -1,54 +1,61 @@
-import time
-import subprocess
-import json
-import time
-import subprocess
-import json
-import websocket
-import asyncio
 # backendtests.py
-
+import time
+import subprocess
+import json
+import time
+import subprocess
+import json
+import asyncio
+import socketio
 # Importing the Palworld-RestApi module
 from PalworldApi import PalworldRestApi
 
-def getPlayers():
+def __get_players():
     result = PalworldRestApi.findPlayers()
     print(result)
 
-def getMetrics():
+def __get_metrics():
     result = PalworldRestApi.findMetrics()
     result = json.loads(result)
     print(result)
 
-def getInfo():
+def __get_info():
     result = PalworldRestApi.serverInfo()
     result = json.loads(result)
     print(result)
 
-def pushMessage(message):
+def __push_message(message):
     result = PalworldRestApi.sendMessage(message)
     print(result)
 
-def pushSave():
+def __push_save():
     result = PalworldRestApi.saveWorld()
     print(result)
 
-def pushShutDown(shutdownMessage,shutdownTime):
+def __push_shutdown(shutdownMessage,shutdownTime):
     result = PalworldRestApi.shutWorld(shutdownMessage,shutdownTime)
     print(result)
 
+async def client_connect():
+        async with socketio.AsyncSimpleClient() as sio:
+            await sio.connect('http://localhost:5000')
+            event = await sio.receive()
+            print(event)
+            await sio.emit('Sending from Server Side', __get_players())
+            await sio.disconnect()
+
 def test():
-    getPlayers()
+    get_players()
     time.sleep(5)
-    getMetrics()
+    get_metrics()
     time.sleep(5)
-    getInfo()
+    get_info()
     time.sleep(5)
-    pushSave()
+    push_save()
     time.sleep(5)
-    pushMessage("***Test*** - Message sent from testunit/pushMessage")
+    push_message("***Test*** - Message sent from testunit/pushMessage")
     time.sleep(10)
-    pushShutDown("***Test*** - Message sent from testunit/pushShutDown",10)
+    push_shutdown("***Test*** - Message sent from testunit/pushShutDown",10)
     time.sleep(30)
     runServer = "sudo systemctl restart palserver.service"
     result = subprocess.run(runServer, shell=True, capture_output=True, text=True)
