@@ -12,7 +12,7 @@ class PalworldRestApi:
             payload={}
             headers = {'Accept': 'application/json'}
             response = requests.request("GET", url, headers=headers, data=payload)
-            return response.text
+            return json.loads(response.text)
         except:
             return "error - unable to connect to server"
         

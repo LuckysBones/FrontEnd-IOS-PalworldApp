@@ -1,6 +1,11 @@
 import time
 import subprocess
 import json
+import time
+import subprocess
+import json
+import websocket
+import asyncio
 # backendtests.py
 
 # Importing the Palworld-RestApi module
@@ -8,7 +13,6 @@ from PalworldApi import PalworldRestApi
 
 def getPlayers():
     result = PalworldRestApi.findPlayers()
-    result = json.loads(result)
     print(result)
 
 def getMetrics():
