@@ -9,17 +9,14 @@ from PalworldApi import PalworldRestApi
 
 def getPlayers():
     result = PalworldRestApi.findPlayers()
-    result = json.loads(result)
     print(result)
 
 def getMetrics():
     result = PalworldRestApi.findMetrics()
-    result = json.loads(result)
     print(result)
 
 def getInfo():
     result = PalworldRestApi.serverInfo()
-    result = json.loads(result)
     print(result)
 
 def pushMessage(message):
