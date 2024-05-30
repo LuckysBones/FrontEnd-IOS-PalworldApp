@@ -18,6 +18,8 @@
 		054F9F792BF55E8E00ED047C /* PalworldFrontEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F9F782BF55E8E00ED047C /* PalworldFrontEndTests.swift */; };
 		054F9F832BF55E8F00ED047C /* PalworldFrontEndUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F9F822BF55E8F00ED047C /* PalworldFrontEndUITests.swift */; };
 		054F9F852BF55E8F00ED047C /* PalworldFrontEndUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F9F842BF55E8F00ED047C /* PalworldFrontEndUITestsLaunchTests.swift */; };
+		0570A1B82C081A5A00F05B14 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0570A1B72C081A5A00F05B14 /* Header.swift */; };
+		0570A1BA2C082AC900F05B14 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0570A1B92C082AC900F05B14 /* SettingsPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		054F9F7E2BF55E8F00ED047C /* PalworldFrontEndUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PalworldFrontEndUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		054F9F822BF55E8F00ED047C /* PalworldFrontEndUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalworldFrontEndUITests.swift; sourceTree = "<group>"; };
 		054F9F842BF55E8F00ED047C /* PalworldFrontEndUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalworldFrontEndUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0570A1B72C081A5A00F05B14 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		0570A1B92C082AC900F05B14 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				0500FE332C053BE900EA5BE7 /* MainPage.swift */,
 				0544A3512C0586E40071121E /* ServerCard.swift */,
 				0544A3532C0598F40071121E /* HeaderImage.swift */,
+				0570A1B72C081A5A00F05B14 /* Header.swift */,
+				0570A1B92C082AC900F05B14 /* SettingsPage.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -296,6 +302,8 @@
 				0544A3542C0598F40071121E /* HeaderImage.swift in Sources */,
 				054F9F682BF55E8D00ED047C /* ContentView.swift in Sources */,
 				054F9F6A2BF55E8D00ED047C /* Item.swift in Sources */,
+				0570A1BA2C082AC900F05B14 /* SettingsPage.swift in Sources */,
+				0570A1B82C081A5A00F05B14 /* Header.swift in Sources */,
 				054F9F662BF55E8D00ED047C /* PalworldFrontEndApp.swift in Sources */,
 				0500FE342C053BE900EA5BE7 /* MainPage.swift in Sources */,
 				0544A3522C0586E40071121E /* ServerCard.swift in Sources */,

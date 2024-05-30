@@ -22,7 +22,7 @@ struct HeaderImage: View {
                 .multilineTextAlignment(.center)
                 .lineLimit(12)
                 .padding(.top, -340.0)
-                .offset(y:0)
+
 
 
 

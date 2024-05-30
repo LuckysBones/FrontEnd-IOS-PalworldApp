@@ -10,15 +10,13 @@ import SwiftUI
 struct MainPage: View {
     
     var body: some View {
-
-        NavigationSplitView{
-            List{
-                ServerCard()
-            }
-            .navigationTitle("Palworld Server's")
-        } detail: {
-            Text("Select Palworld Server")
+        VStack(spacing: 0.0) {
+            Header()
+            ServerCard()
         }
+        .background(Color(red: 0.28627450980392155, green: 0.5568627450980392, blue: 0.7254901960784313))
+
+              
     }
 }
 
