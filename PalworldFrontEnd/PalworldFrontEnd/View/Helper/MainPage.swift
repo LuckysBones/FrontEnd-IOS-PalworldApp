@@ -10,13 +10,27 @@ import SwiftUI
 struct MainPage: View {
     
     var body: some View {
-        VStack(spacing: 0.0) {
-            Header()
-            ServerCard()
+        NavigationStack{
+            VStack(spacing: 0.0) {
+                Header()
+                    .shadow(radius: 5)
+                
+                ScrollView(.vertical, showsIndicators: false){
+                    NavigationLink(destination: Controls()){
+                        ServerCard()
+                            .padding(.top, 80)
+                            .shadow(radius: 5)
+                    }
+                    
+                }
+                
+                
+                
+            }
+            .background(Color(red: 0.7450980392156863, green: 0.8705882352941177, blue: 0.9098039215686274))
+            
+            
         }
-        .background(Color(red: 0.28627450980392155, green: 0.5568627450980392, blue: 0.7254901960784313))
-
-              
     }
 }
 

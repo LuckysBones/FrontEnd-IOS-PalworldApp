@@ -9,43 +9,54 @@ import SwiftUI
 
 struct ServerCard: View {
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false){
-            VStack {
-                ZStack {
+        VStack {
+            ZStack {
+                Rectangle()
+                    .frame(width: 400.0, height: 500.0)
+                    .foregroundColor(Color(red: 0.28627450980392155, green: 0.5568627450980392, blue: 0.7254901960784313))
+                    .cornerRadius(31)
+                
+                VStack{
+                    HStack(spacing: 0.0) {
+                        Text("Palworld Server")
+                            .font(.title)
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color.white)
+                            .multilineTextAlignment(.leading)
+                            .padding(.leading, -128)
+                    }
                     Rectangle()
-                        .frame(width: 400.0, height: 200.0)
-                        .foregroundColor(Color(red: 0.7450980392156863, green: 0.8705882352941177, blue: 0.9098039215686274))
-                        .cornerRadius(25)
-                    
+                        .frame(width: 350, height: 300)
+                        .foregroundColor(.cyan)
+                        .cornerRadius(31)
                     HStack{
-                        
                         VStack(alignment: .leading) {
-                            Text("Palworld Server Name")
-                                .multilineTextAlignment(.leading)
-                                .padding(.bottom, 20.0)
                             Text("Current Players: ")
                                 .multilineTextAlignment(.leading)
-                                .padding(.bottom, 20.0)
+                                .foregroundColor(Color.white)
                             Text("Version: ")
                                 .multilineTextAlignment(.leading)
+                                .foregroundColor(Color.white)
                         }
-                        .padding(.leading, -5.0)
+                        .padding()
                         VStack(alignment: .trailing) {
                             Text("Time Online: ")
+                                .foregroundColor(Color.white)
                                 .multilineTextAlignment(.trailing)
-                                .padding(.bottom, 20.0)
                             Text("Server Frame Time:")
+                                .foregroundColor(Color.white)
                                 .multilineTextAlignment(.trailing)
-                                .padding(.bottom, 20.0)
+                            
                             Text("Server FPS:")
+                                .foregroundColor(Color.white)
                             
                         }
                         .padding()
                     }
+                    
                 }
-
             }
-            .padding(25.0)
+
         }
         
 
