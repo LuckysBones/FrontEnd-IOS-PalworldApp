@@ -15,6 +15,7 @@ struct ServerCard: View {
                     .frame(width: 400.0, height: 500.0)
                     .foregroundColor(Color(red: 0.28627450980392155, green: 0.5568627450980392, blue: 0.7254901960784313))
                     .cornerRadius(31)
+                    .shadow(radius: 20)
                 
                 VStack{
                     HStack(spacing: 0.0) {

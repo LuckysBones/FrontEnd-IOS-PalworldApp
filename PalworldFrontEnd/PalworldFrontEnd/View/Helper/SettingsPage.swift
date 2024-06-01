@@ -9,7 +9,14 @@ import SwiftUI
 
 struct SettingsPage: View {
     var body: some View {
-        Text("Hello, from settings page!")
+        
+        VStack(spacing:0.0){
+            
+            AltHeader()
+            Spacer()
+            
+        }
+        .background(Color(red: 0.7450980392156863, green: 0.8705882352941177, blue: 0.9098039215686274))
     }
 }
 

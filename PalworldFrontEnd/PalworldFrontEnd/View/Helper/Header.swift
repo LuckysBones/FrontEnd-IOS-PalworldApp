@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Header: View {
+    @State private var titleString = "Settings"
     var body: some View {
         NavigationStack{
             VStack{
@@ -28,7 +29,8 @@ struct Header: View {
                             .padding(36)
                     }
                 }.frame(height: 100.0).background(Color(red: 0.28627450980392155, green: 0.5568627450980392, blue: 0.7254901960784313))
-            }
+            }        
+            .shadow(radius: 7)
         }
     }
 }

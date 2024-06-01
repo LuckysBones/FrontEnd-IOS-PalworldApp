@@ -9,8 +9,14 @@
 /* Begin PBXBuildFile section */
 		0500FE342C053BE900EA5BE7 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500FE332C053BE900EA5BE7 /* MainPage.swift */; };
 		0544A3522C0586E40071121E /* ServerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544A3512C0586E40071121E /* ServerCard.swift */; };
-		0544A3542C0598F40071121E /* HeaderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544A3532C0598F40071121E /* HeaderImage.swift */; };
 		0549ED7C2C090D94009DBEF2 /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED7B2C090D94009DBEF2 /* Controls.swift */; };
+		0549ED7F2C0AA7C2009DBEF2 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED7E2C0AA7C2009DBEF2 /* Players.swift */; };
+		0549ED812C0AACDE009DBEF2 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED802C0AACDE009DBEF2 /* Info.swift */; };
+		0549ED832C0AACF0009DBEF2 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED822C0AACF0009DBEF2 /* Metrics.swift */; };
+		0549ED852C0AADAE009DBEF2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED842C0AADAE009DBEF2 /* Message.swift */; };
+		0549ED872C0AADBE009DBEF2 /* Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED862C0AADBE009DBEF2 /* Save.swift */; };
+		0549ED892C0AADCA009DBEF2 /* Shutdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED882C0AADCA009DBEF2 /* Shutdown.swift */; };
+		0549ED8B2C0ABE1E009DBEF2 /* AltHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED8A2C0ABE1E009DBEF2 /* AltHeader.swift */; };
 		054F9F662BF55E8D00ED047C /* PalworldFrontEndApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F9F652BF55E8D00ED047C /* PalworldFrontEndApp.swift */; };
 		054F9F682BF55E8D00ED047C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F9F672BF55E8D00ED047C /* ContentView.swift */; };
 		054F9F6A2BF55E8D00ED047C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F9F692BF55E8D00ED047C /* Item.swift */; };
@@ -43,8 +49,14 @@
 /* Begin PBXFileReference section */
 		0500FE332C053BE900EA5BE7 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		0544A3512C0586E40071121E /* ServerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCard.swift; sourceTree = "<group>"; };
-		0544A3532C0598F40071121E /* HeaderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImage.swift; sourceTree = "<group>"; };
 		0549ED7B2C090D94009DBEF2 /* Controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controls.swift; sourceTree = "<group>"; };
+		0549ED7E2C0AA7C2009DBEF2 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		0549ED802C0AACDE009DBEF2 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		0549ED822C0AACF0009DBEF2 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		0549ED842C0AADAE009DBEF2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		0549ED862C0AADBE009DBEF2 /* Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Save.swift; sourceTree = "<group>"; };
+		0549ED882C0AADCA009DBEF2 /* Shutdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shutdown.swift; sourceTree = "<group>"; };
+		0549ED8A2C0ABE1E009DBEF2 /* AltHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AltHeader.swift; sourceTree = "<group>"; };
 		054F9F622BF55E8D00ED047C /* PalworldFrontEnd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PalworldFrontEnd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		054F9F652BF55E8D00ED047C /* PalworldFrontEndApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalworldFrontEndApp.swift; sourceTree = "<group>"; };
 		054F9F672BF55E8D00ED047C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,11 +118,17 @@
 			isa = PBXGroup;
 			children = (
 				0500FE332C053BE900EA5BE7 /* MainPage.swift */,
-				0544A3512C0586E40071121E /* ServerCard.swift */,
-				0544A3532C0598F40071121E /* HeaderImage.swift */,
-				0570A1B72C081A5A00F05B14 /* Header.swift */,
-				0570A1B92C082AC900F05B14 /* SettingsPage.swift */,
 				0549ED7B2C090D94009DBEF2 /* Controls.swift */,
+				0570A1B92C082AC900F05B14 /* SettingsPage.swift */,
+				0544A3512C0586E40071121E /* ServerCard.swift */,
+				0570A1B72C081A5A00F05B14 /* Header.swift */,
+				0549ED8A2C0ABE1E009DBEF2 /* AltHeader.swift */,
+				0549ED7E2C0AA7C2009DBEF2 /* Players.swift */,
+				0549ED802C0AACDE009DBEF2 /* Info.swift */,
+				0549ED822C0AACF0009DBEF2 /* Metrics.swift */,
+				0549ED842C0AADAE009DBEF2 /* Message.swift */,
+				0549ED862C0AADBE009DBEF2 /* Save.swift */,
+				0549ED882C0AADCA009DBEF2 /* Shutdown.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -302,15 +320,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0544A3542C0598F40071121E /* HeaderImage.swift in Sources */,
 				054F9F682BF55E8D00ED047C /* ContentView.swift in Sources */,
 				054F9F6A2BF55E8D00ED047C /* Item.swift in Sources */,
 				0570A1BA2C082AC900F05B14 /* SettingsPage.swift in Sources */,
+				0549ED8B2C0ABE1E009DBEF2 /* AltHeader.swift in Sources */,
 				0549ED7C2C090D94009DBEF2 /* Controls.swift in Sources */,
 				0570A1B82C081A5A00F05B14 /* Header.swift in Sources */,
+				0549ED872C0AADBE009DBEF2 /* Save.swift in Sources */,
+				0549ED7F2C0AA7C2009DBEF2 /* Players.swift in Sources */,
+				0549ED832C0AACF0009DBEF2 /* Metrics.swift in Sources */,
 				054F9F662BF55E8D00ED047C /* PalworldFrontEndApp.swift in Sources */,
+				0549ED852C0AADAE009DBEF2 /* Message.swift in Sources */,
 				0500FE342C053BE900EA5BE7 /* MainPage.swift in Sources */,
+				0549ED892C0AADCA009DBEF2 /* Shutdown.swift in Sources */,
 				0544A3522C0586E40071121E /* ServerCard.swift in Sources */,
+				0549ED812C0AACDE009DBEF2 /* Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
