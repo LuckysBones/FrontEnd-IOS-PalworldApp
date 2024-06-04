@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Header: View {
-    @State private var titleString = "Settings"
     var body: some View {
         NavigationStack{
             VStack{

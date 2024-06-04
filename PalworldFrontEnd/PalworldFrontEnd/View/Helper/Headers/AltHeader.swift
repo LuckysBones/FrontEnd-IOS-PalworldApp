@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AltHeader: View {
-    private var titleString = "PalApp"
+    @Binding var titleString: String
     var body: some View {
             VStack{
                 HStack{
@@ -26,6 +26,10 @@ struct AltHeader: View {
     }
 }
 
-#Preview {
-    AltHeader()
+struct AltHeader_Previews: PreviewProvider {
+    @State static var previewTitle = "Sample Title"
+    
+    static var previews: some View {
+        AltHeader(titleString: $previewTitle)
+    }
 }
