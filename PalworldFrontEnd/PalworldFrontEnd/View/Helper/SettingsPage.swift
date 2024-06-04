@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct SettingsPage: View {
+    @State var titleString = "Settings"
     var body: some View {
         
         VStack(spacing:0.0){
             
-            AltHeader()
+            AltHeader(titleString: $titleString)
             Spacer()
             
         }
