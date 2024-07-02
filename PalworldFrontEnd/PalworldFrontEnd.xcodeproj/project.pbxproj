@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0500FE342C053BE900EA5BE7 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500FE332C053BE900EA5BE7 /* MainPage.swift */; };
+		050338492C33A305008DED07 /* websockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050338482C33A305008DED07 /* websockets.swift */; };
+		0503384B2C33B9E3008DED07 /* socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0503384A2C33B9E3008DED07 /* socket.swift */; };
 		0544A3522C0586E40071121E /* ServerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544A3512C0586E40071121E /* ServerCard.swift */; };
 		0549BFD72C0E98CD00ACB1BD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549BFD62C0E98CD00ACB1BD /* Player.swift */; };
 		0549BFDE2C0EA81500ACB1BD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549BFDD2C0EA81500ACB1BD /* Data.swift */; };
@@ -49,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		0500FE332C053BE900EA5BE7 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		050338482C33A305008DED07 /* websockets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = websockets.swift; sourceTree = "<group>"; };
+		0503384A2C33B9E3008DED07 /* socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = socket.swift; sourceTree = "<group>"; };
 		0544A3512C0586E40071121E /* ServerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCard.swift; sourceTree = "<group>"; };
 		0549BFD62C0E98CD00ACB1BD /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0549BFDD2C0EA81500ACB1BD /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				0549BFDD2C0EA81500ACB1BD /* Data.swift */,
+				050338482C33A305008DED07 /* websockets.swift */,
+				0503384A2C33B9E3008DED07 /* socket.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -341,10 +347,12 @@
 			files = (
 				054F9F682BF55E8D00ED047C /* ContentView.swift in Sources */,
 				0570A1BA2C082AC900F05B14 /* SettingsPage.swift in Sources */,
+				0503384B2C33B9E3008DED07 /* socket.swift in Sources */,
 				0549ED8B2C0ABE1E009DBEF2 /* AltHeader.swift in Sources */,
 				0549ED7C2C090D94009DBEF2 /* Controls.swift in Sources */,
 				0570A1B82C081A5A00F05B14 /* Header.swift in Sources */,
 				0549ED872C0AADBE009DBEF2 /* Save.swift in Sources */,
+				050338492C33A305008DED07 /* websockets.swift in Sources */,
 				0549ED7F2C0AA7C2009DBEF2 /* Players.swift in Sources */,
 				0549ED832C0AACF0009DBEF2 /* Metrics.swift in Sources */,
 				054F9F662BF55E8D00ED047C /* PalworldFrontEndApp.swift in Sources */,
