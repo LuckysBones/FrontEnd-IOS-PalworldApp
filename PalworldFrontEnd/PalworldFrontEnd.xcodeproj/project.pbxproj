@@ -3,17 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0500FE342C053BE900EA5BE7 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500FE332C053BE900EA5BE7 /* MainPage.swift */; };
 		050338492C33A305008DED07 /* websockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050338482C33A305008DED07 /* websockets.swift */; };
-		0503384B2C33B9E3008DED07 /* socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0503384A2C33B9E3008DED07 /* socket.swift */; };
 		0544A3522C0586E40071121E /* ServerCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0544A3512C0586E40071121E /* ServerCard.swift */; };
-		0549BFD72C0E98CD00ACB1BD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549BFD62C0E98CD00ACB1BD /* Player.swift */; };
 		0549BFDE2C0EA81500ACB1BD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549BFDD2C0EA81500ACB1BD /* Data.swift */; };
-		0549ED7C2C090D94009DBEF2 /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED7B2C090D94009DBEF2 /* Controls.swift */; };
 		0549ED7F2C0AA7C2009DBEF2 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED7E2C0AA7C2009DBEF2 /* Players.swift */; };
 		0549ED812C0AACDE009DBEF2 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED802C0AACDE009DBEF2 /* Info.swift */; };
 		0549ED832C0AACF0009DBEF2 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549ED822C0AACF0009DBEF2 /* Metrics.swift */; };
@@ -30,6 +27,7 @@
 		054F9F852BF55E8F00ED047C /* PalworldFrontEndUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F9F842BF55E8F00ED047C /* PalworldFrontEndUITestsLaunchTests.swift */; };
 		0570A1B82C081A5A00F05B14 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0570A1B72C081A5A00F05B14 /* Header.swift */; };
 		0570A1BA2C082AC900F05B14 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0570A1B92C082AC900F05B14 /* SettingsPage.swift */; };
+		05CD5F3F2C6B1A1700622FD1 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CD5F3E2C6B1A1700622FD1 /* parse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,11 +50,8 @@
 /* Begin PBXFileReference section */
 		0500FE332C053BE900EA5BE7 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		050338482C33A305008DED07 /* websockets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = websockets.swift; sourceTree = "<group>"; };
-		0503384A2C33B9E3008DED07 /* socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = socket.swift; sourceTree = "<group>"; };
 		0544A3512C0586E40071121E /* ServerCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCard.swift; sourceTree = "<group>"; };
-		0549BFD62C0E98CD00ACB1BD /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0549BFDD2C0EA81500ACB1BD /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
-		0549ED7B2C090D94009DBEF2 /* Controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controls.swift; sourceTree = "<group>"; };
 		0549ED7E2C0AA7C2009DBEF2 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 		0549ED802C0AACDE009DBEF2 /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		0549ED822C0AACF0009DBEF2 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
@@ -76,7 +71,22 @@
 		054F9F842BF55E8F00ED047C /* PalworldFrontEndUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PalworldFrontEndUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0570A1B72C081A5A00F05B14 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		0570A1B92C082AC900F05B14 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		05CD5F3E2C6B1A1700622FD1 /* parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		05CD5F462C6DC7C200622FD1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Player.swift,
+			);
+			target = 054F9F612BF55E8D00ED047C /* PalworldFrontEnd */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		05CD5F432C6DC72800622FD1 /* Player-View */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (05CD5F462C6DC7C200622FD1 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Player-View"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		054F9F5F2BF55E8D00ED047C /* Frameworks */ = {
@@ -116,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				0500FE332C053BE900EA5BE7 /* MainPage.swift */,
-				0549ED7B2C090D94009DBEF2 /* Controls.swift */,
 				0570A1B92C082AC900F05B14 /* SettingsPage.swift */,
 				0544A3512C0586E40071121E /* ServerCard.swift */,
 				0549ED8D2C0B07BB009DBEF2 /* Headers */,
@@ -130,7 +139,7 @@
 			children = (
 				0549BFDD2C0EA81500ACB1BD /* Data.swift */,
 				050338482C33A305008DED07 /* websockets.swift */,
-				0503384A2C33B9E3008DED07 /* socket.swift */,
+				05CD5F3E2C6B1A1700622FD1 /* parse.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -138,8 +147,8 @@
 		0549ED8C2C0B0457009DBEF2 /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				05CD5F432C6DC72800622FD1 /* Player-View */,
 				0549ED7E2C0AA7C2009DBEF2 /* Players.swift */,
-				0549BFD62C0E98CD00ACB1BD /* Player.swift */,
 				0549ED802C0AACDE009DBEF2 /* Info.swift */,
 				0549ED822C0AACF0009DBEF2 /* Metrics.swift */,
 				0549ED842C0AADAE009DBEF2 /* Message.swift */,
@@ -279,7 +288,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					054F9F612BF55E8D00ED047C = {
 						CreatedOnToolsVersion = 15.4;
@@ -347,10 +356,9 @@
 			files = (
 				054F9F682BF55E8D00ED047C /* ContentView.swift in Sources */,
 				0570A1BA2C082AC900F05B14 /* SettingsPage.swift in Sources */,
-				0503384B2C33B9E3008DED07 /* socket.swift in Sources */,
 				0549ED8B2C0ABE1E009DBEF2 /* AltHeader.swift in Sources */,
-				0549ED7C2C090D94009DBEF2 /* Controls.swift in Sources */,
 				0570A1B82C081A5A00F05B14 /* Header.swift in Sources */,
+				05CD5F3F2C6B1A1700622FD1 /* parse.swift in Sources */,
 				0549ED872C0AADBE009DBEF2 /* Save.swift in Sources */,
 				050338492C33A305008DED07 /* websockets.swift in Sources */,
 				0549ED7F2C0AA7C2009DBEF2 /* Players.swift in Sources */,
@@ -361,7 +369,6 @@
 				0549ED892C0AADCA009DBEF2 /* Shutdown.swift in Sources */,
 				0544A3522C0586E40071121E /* ServerCard.swift in Sources */,
 				0549BFDE2C0EA81500ACB1BD /* Data.swift in Sources */,
-				0549BFD72C0E98CD00ACB1BD /* Player.swift in Sources */,
 				0549ED812C0AACDE009DBEF2 /* Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,7 +586,6 @@
 		054F9F8C2BF55E8F00ED047C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -598,7 +604,6 @@
 		054F9F8D2BF55E8F00ED047C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -617,7 +622,6 @@
 		054F9F8F2BF55E8F00ED047C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -634,7 +638,6 @@
 		054F9F902BF55E8F00ED047C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

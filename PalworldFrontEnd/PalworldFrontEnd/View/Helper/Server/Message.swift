@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct Message: View {
-    @State private var messageField = ""
+struct Message: View{
+    @StateObject private var messageSocket = ParseJSON()
+    @State private var inputMessage = ""
+    
     var body: some View {
             ZStack {
                 Rectangle()
@@ -30,8 +32,8 @@ struct Message: View {
                             Spacer()
                             Spacer()
                             TextField(
-                                "Message to server",
-                                text: $messageField
+                                "Type Your Message Here",
+                                text: $inputMessage
                             )
                             .textFieldStyle(.plain)
                             .frame(width: 300)
@@ -45,12 +47,15 @@ struct Message: View {
 
                             HStack(alignment: .lastTextBaseline) {
                                 Spacer()
-                                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                Button(action: {
+                                    messageSocket.sendMessage(messageString: inputMessage)
+                                    inputMessage = ""
+                                }) {
                                     Text("Submit")
                                         .foregroundStyle(.white)
                                         .clipShape(RoundedRectangle(cornerSize: CGSize(width: 5, height: 1)))
                                         .padding(.trailing,15)
-                                })
+                                }
                             }
                             
                             
@@ -59,6 +64,12 @@ struct Message: View {
                         }.padding()
                         
                     }
+            }
+            .onAppear{
+                messageSocket.connect(urlString: "message")
+            }
+            .onDisappear {
+                messageSocket.disconnect()
             }
         }
 }

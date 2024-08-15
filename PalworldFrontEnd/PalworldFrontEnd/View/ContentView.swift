@@ -7,17 +7,19 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    @StateObject var parseData = ParseJSON()
+    @State var isConnected: Bool = true
+    
     var body: some View {
-        VStack{
-            MainPage()
-        }.background(Color(red: 0.28627450980392155, green: 0.5568627450980392, blue: 0.7254901960784313))
-        
+        VStack {
+            MainPage(parseData: parseData)
+        }
+        .background(Color(red: 0.286, green: 0.556, blue: 0.725)) // Simplified color values
+        .onAppear {
+            parseData.connect(urlString: "metric")
+        }
     }
-
 }
-
-
 #Preview {
     ContentView()
 }

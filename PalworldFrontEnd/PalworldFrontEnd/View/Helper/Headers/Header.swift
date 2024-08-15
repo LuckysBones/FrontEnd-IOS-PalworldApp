@@ -25,11 +25,11 @@ struct Header: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .foregroundColor(.white)
-                            .padding(36)
+                            .padding(20)
                     }
-                }.frame(height: 100.0).background(Color(red: 0.28627450980392155, green: 0.5568627450980392, blue: 0.7254901960784313))
+                }.frame(height: 70.0).background(Color(red: 0.28627450980392155, green: 0.5568627450980392, blue: 0.7254901960784313))
             }
-            .shadow(radius: 7)
+            //.shadow(radius: 7)
         }
     }
 }
