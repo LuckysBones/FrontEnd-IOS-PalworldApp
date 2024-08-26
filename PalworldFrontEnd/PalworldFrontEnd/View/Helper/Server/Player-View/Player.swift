@@ -13,54 +13,74 @@ struct Player: View {
     @ObservedObject var playerData = ParseJSON()
     @State var titleString: String = "Palworld Server"
     
+    @State var players: PlayersResponse?
     
     var body: some View {
-        NavigationStack{
-            VStack(spacing:0.0){
-                AltHeader(titleString: $titleString)
-                ScrollView{
-                }
-            }.background(Color(red: 0.7450980392156863, green: 0.8705882352941177, blue: 0.9098039215686274))
+        NavigationStack {
+               AltHeader(titleString: $titleString)
+               VStack(spacing: 0.0) {
+                   if let players = playerData.returnPlayers()?.players, !players.isEmpty{
+                       List(players) { player in
+                           PlayerRow(player: player)
+                       }
+                   } else {
+                       VStack{
+                           Text("Not Here Yet")
+                               .font(.headline)
+                               .padding()
+                       }
+                   }
+               }
         }
         .onAppear{
-            playerData.connect(urlString: "players")
-            playerData.receive()
-            playerData.isConnected = true
+            //playerData.isConnected = true
             Task {await playersBackground(parseData: playerData)}
         }
         .onDisappear{
+            //playerData.disconnect()
             playerData.isConnected = false
         }
         .accentColor(.white)
     }
     
-    /*func runButtonAction() {
-        parseData.disconnect()
-        parseData.connect(urlString: "players")
-    }*/
-}
-
-func playersBackground(parseData: ParseJSON) async {
-    
-    await Task.detached(priority: .background) {
-        while parseData.isNull() {
-            parseData.receive()
-            try? await Task.sleep(nanoseconds: 500_000_000) // .5 seconds
-        }
+    func playersBackground(parseData: ParseJSON) async {
         
-        while parseData.isConnected {
-            //parseData.printJson()
-            parseData.parsePlayerData()
-            try? await Task.sleep(nanoseconds: 60_000_000_000) // 60 seconds
-            parseData.receive()
-            try? await Task.sleep(nanoseconds: 500_000_000) // .5 seconds
-        }
-        /* await MainActor.run {
-            // Update the UI on the main thread if needed
-            print("Background task completed.")
-        }*/
-    }.value
-}
+        await Task.detached(priority: .background) {
+            
+            parseData.reset()
+            
+            while parseData.isConnected == false {
+                parseData.connect(urlString: "players")
+                parseData.checkConnection()
+            }
+            print("Connected - Players")
+            
+            while parseData.isNull() {
+                parseData.receive()
+                try? await Task.sleep(nanoseconds: 100_000_000) // .1 seconds
+            }
+            
+            repeat {
+                parseData.parsePlayerData()
+                
+                for _ in 1...5{
+                    try? await Task.sleep(nanoseconds: 2_000_000_000) // 2 second * 5 loops = 10ish seconds
+                    
+                    if(parseData.isConnected == false){
+                        break
+                    }
+                }
+                
+                if(parseData.isConnected == true){
+                    parseData.receive()
+                }
+                
+            } while parseData.isConnected == true
+            
+            parseData.disconnect()
+            print("Disonnected - Players")
+        }.value
+    }}
 
 
 

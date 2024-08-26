@@ -3,9 +3,11 @@ import Foundation
 class ParseJSON: ObservableObject {
     
     private var webSocketManager = WebSocketManager()
-    @Published var isConnected: Bool = true
-    //change let product variable to be here
+    @Published var isConnected: Bool = false
+    @Published var isActive: Bool = false
     @Published var product: ServerMetrics?
+    @Published var parsePlayers: PlayersResponse?
+    
     func parseData() {
             let jsonData = webSocketManager.postedMessage
             
@@ -21,7 +23,6 @@ class ParseJSON: ObservableObject {
                     DispatchQueue.main.async {
                         self.product = parsedProduct
                     }
-                    //print(product?.serverframetime ?? 0.0)
                 } catch {
                     print("Failed to decode JSON: \(error)")
                 }
@@ -36,13 +37,17 @@ class ParseJSON: ObservableObject {
         // Decode the JSON
         do {
             let playersResponse = try JSONDecoder().decode(PlayersResponse.self, from: jsonData)
-            print(playersResponse.players[0]) // Output: Lucky
+            //print("                              \(playersResponse.players[0])") // Output: Lucky
+            DispatchQueue.main.async {
+                self.parsePlayers = playersResponse
+            }
         } catch {
             print("Failed to decode JSON: \(error)")
         }
     }
     
     func connect(urlString: String){
+        webSocketManager.isConnected = self.isConnected
         webSocketManager.connect(urlString: urlString)
     }
     
@@ -69,5 +74,33 @@ class ParseJSON: ObservableObject {
     
     func returnData() -> ServerMetrics? {
         return product
+    }
+    
+    func returnPlayers() -> PlayersResponse? {
+        return parsePlayers
+    }
+    
+    func reset(){
+        webSocketManager.resetPosted()
+    }
+    
+    func checkConnection() /*-> Bool*/ {
+        webSocketManager.sendPing()
+        
+        if (self.connected() == true){
+            DispatchQueue.main.async {
+                self.isConnected = true
+            }
+
+            return
+        }
+        DispatchQueue.main.async {
+            self.isConnected = false
+        }
+        return
+    }
+    
+    func connected() -> Bool {
+        return webSocketManager.pingTrue
     }
 }

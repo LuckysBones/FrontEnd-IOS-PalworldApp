@@ -12,7 +12,6 @@ struct MainPage: View {
     
     @ObservedObject var parseData: ParseJSON
     @State private var textString = ""
-    //let serverMetrics:  ServerMetrics
     
     var body: some View {
         NavigationStack{
@@ -25,7 +24,7 @@ struct MainPage: View {
                     ServerCard(parseData: parseData)
                         .padding([.top,.bottom], 25)
                     
-                    Metrics(parseData: parseData)
+                    Metrics()
                         .padding(.bottom, 10)
                     
                     HStack{
@@ -44,7 +43,7 @@ struct MainPage: View {
                         .padding(.bottom, 150)
                 }
             }
-            .background(Color(red: 0.7450980392156863, green: 0.8705882352941177, blue: 0.9098039215686274))
+            .background(Color(red: 0.745, green: 0.870, blue: 0.909))
         }
         .accentColor(.white)
     }

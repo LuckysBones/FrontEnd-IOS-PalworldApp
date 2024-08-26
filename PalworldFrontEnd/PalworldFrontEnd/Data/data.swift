@@ -7,27 +7,31 @@
 
 import Foundation
 import SwiftData
+import CoreLocation
 
 
 
-struct PlayerServer: Codable {
+struct PlayerServer: Hashable, Codable, Identifiable {
     
     let name: String
     let accountName: String
-    let playerId: String
+    let playerId: String // This will serve as the unique identifier
     let userId: String
-    let ip: String
+    //let ip: String
     let ping: Double
     let locationX: Double
     let locationY: Double
     let level: Int
+
+    // Conformance to Identifiable
+    var id: String { playerId }
 
     enum CodingKeys: String, CodingKey {
         case name
         case accountName
         case playerId
         case userId
-        case ip
+        //case ip
         case ping
         case locationX = "location_x"
         case locationY = "location_y"

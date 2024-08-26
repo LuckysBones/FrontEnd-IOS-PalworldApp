@@ -79,6 +79,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Player.swift,
+				PlayerRow.swift,
 			);
 			target = 054F9F612BF55E8D00ED047C /* PalworldFrontEnd */;
 		};

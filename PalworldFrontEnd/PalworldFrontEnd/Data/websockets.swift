@@ -4,18 +4,23 @@ class WebSocketManager: ObservableObject {
     
     private var webSocketTask: URLSessionWebSocketTask?
     private var urlSession: URLSession
+    private var urlString: String = ""
     
     @Published var message: String = ""
     @Published var postedMessage: String = ""
+    @Published var isConnected: Bool = true
+    @Published var pingTrue: Bool = false
     
     init() {
         urlSession = URLSession(configuration: .default)
     }
     
     func connect(urlString: String) {
+        self.urlString = urlString
         guard let url = URL(string:"wss://luckyspalworldserver.com/ws/\(urlString)/") else { return }
         webSocketTask = urlSession.webSocketTask(with: url)
         webSocketTask?.resume()
+        sleep(1)
         receiveMessage()
     }
     
@@ -50,7 +55,9 @@ class WebSocketManager: ObservableObject {
         webSocketTask?.receive { [weak self] result in
             switch result {
             case .failure(let error):
-                print("WebSocket receiving error: \(error)")
+                if(self?.isConnected == true){
+                    print("WebSocket receiving error: \(error)")
+                }
             case .success(let postedMessage):
                 switch postedMessage {
                 case .string(let text):
@@ -67,20 +74,22 @@ class WebSocketManager: ObservableObject {
     
     func disconnect() {
         webSocketTask?.cancel(with: .goingAway, reason: nil)
+        isConnected = false
     }
     
-    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
-        print("WebSocket connection opened.")
+    func sendPing() {
+        webSocketTask?.sendPing(pongReceiveHandler: { error in
+            if let error = error {
+                print("Ping failed with error: \(error)")
+                self.pingTrue = false
+            } else {
+                print("Pong received successfully")
+                self.pingTrue = true
+            }
+        })
     }
     
-    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
-        print("WebSocket connection closed: \(closeCode)")
+    func resetPosted(){
+        self.postedMessage = ""
     }
-    
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        if let error = error {
-            print("WebSocket receiving error: \(error)")
-        }
-    }
-    
 }

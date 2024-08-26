@@ -15,9 +15,6 @@ struct ContentView: View {
             MainPage(parseData: parseData)
         }
         .background(Color(red: 0.286, green: 0.556, blue: 0.725)) // Simplified color values
-        .onAppear {
-            parseData.connect(urlString: "metric")
-        }
     }
 }
 #Preview {

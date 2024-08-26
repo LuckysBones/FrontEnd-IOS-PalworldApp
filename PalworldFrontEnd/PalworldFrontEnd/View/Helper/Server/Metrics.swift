@@ -4,12 +4,15 @@ import SwiftUI
 struct Metrics: View {
     
     @ObservedObject var parseData = ParseJSON()
-    
     @State private var serverMetrics: ServerMetrics?
+    
+    @State private var metricTask: Task<Void, Never>? = nil
     var frametime: Double = 0.2
+    private var firstRun: Bool = true
+    
     var body: some View {
         Button(action: {
-            //runButtonAction()
+            runButtonAction()
         }){
             ZStack {
                 Rectangle()
@@ -38,47 +41,75 @@ struct Metrics: View {
                     .frame(width: 400,height: 150)
             }
         }
+        
         .onAppear{
-            parseData.receive()
-            parseData.isConnected = true
-            Task {await metricBackground(parseData: parseData)}
-            //Task {await metricBackground2()}
+            metricTask?.cancel()
+            metricTask = Task {await metricBackground(parseData: parseData)}
         }
+        
         .onDisappear{
+            metricTask?.cancel()
+            print("Cancelled")
             parseData.isConnected = false
+            //firstRun
+            parseData.disconnect()
+            print("Disconnected")
+            
+            
+            
+            
+            
         }
         .accentColor(.white)
     }
     
     func runButtonAction() {
-        parseData.disconnect()
-        parseData.connect(urlString: "metric")
+        //parseData.checkConnection()
     }
-}
-
-
-
-func metricBackground(parseData: ParseJSON) async {
     
-    await Task.detached(priority: .background) {
-        while parseData.isNull() {
-            parseData.receive()
-            try? await Task.sleep(nanoseconds: 500_000_000) // .5 seconds
-        }
+    
+    func metricBackground(parseData: ParseJSON) async {
         
-        while parseData.isConnected {
-            parseData.parseData()
-            try? await Task.sleep(nanoseconds: 60_000_000_000) // 60 seconds
-            parseData.receive()
-            try? await Task.sleep(nanoseconds: 500_000_000) // .5 seconds
-        }
-        /* await MainActor.run {
-            // Update the UI on the main thread if needed
-            print("Background task completed.")
-        }*/
-    }.value
+        await Task.detached(priority: .background) {
+            
+            parseData.reset()
+            
+            parseData.connect(urlString: "metric")
+            
+            parseData.checkConnection()
+            
+            print("Connected")
+            
+            while parseData.isNull() {
+                parseData.receive()
+                try? await Task.sleep(nanoseconds: 100_000_000) // .1 seconds
+            }
+            
+            repeat {
+                parseData.parseData()
+                
+                for _ in 1...30{
+                    try? await Task.sleep(nanoseconds: 2_000_000_000) // 2 second * 30 loops = 60ish seconds
+                    
+                    if(parseData.isConnected == false){
+                        break
+                    }
+                }
+                
+                if(parseData.isConnected == true){
+                    parseData.receive()
+                }
+                
+            } while parseData.isConnected == true
+        }.value
+    }
+    
 }
+
+
+
+
 
 #Preview {
-    Metrics(parseData: ParseJSON())
+    Metrics()
 }

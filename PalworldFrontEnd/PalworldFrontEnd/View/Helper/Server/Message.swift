@@ -48,8 +48,10 @@ struct Message: View{
                             HStack(alignment: .lastTextBaseline) {
                                 Spacer()
                                 Button(action: {
+                                    messageSocket.connect(urlString: "message")
                                     messageSocket.sendMessage(messageString: inputMessage)
                                     inputMessage = ""
+                                    messageSocket.disconnect()
                                 }) {
                                     Text("Submit")
                                         .foregroundStyle(.white)
@@ -66,7 +68,7 @@ struct Message: View{
                     }
             }
             .onAppear{
-                messageSocket.connect(urlString: "message")
+                
             }
             .onDisappear {
                 messageSocket.disconnect()

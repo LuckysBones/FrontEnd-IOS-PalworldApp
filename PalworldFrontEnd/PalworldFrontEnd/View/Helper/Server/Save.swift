@@ -13,7 +13,10 @@ struct Save: View {
     var body: some View {
         ZStack {
             Button(action:{
+                saveSocket.isConnected = true
+                saveSocket.connect(urlString: "save")
                 saveSocket.receive()
+                saveSocket.disconnect()
             }){
                 Rectangle()
                     .frame(width: 180 ,height: 100)
@@ -43,12 +46,6 @@ struct Save: View {
             }
         }
         .accentColor(.white)
-        .onAppear(){
-            saveSocket.connect(urlString: "save")
-        }
-        .onDisappear(){
-            saveSocket.disconnect()
-        }
     }
 }
 
