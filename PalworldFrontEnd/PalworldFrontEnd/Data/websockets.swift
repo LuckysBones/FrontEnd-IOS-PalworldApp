@@ -17,7 +17,8 @@ class WebSocketManager: ObservableObject {
     
     func connect(urlString: String) {
         self.urlString = urlString
-        guard let url = URL(string:"wss://luckyspalworldserver.com/ws/\(urlString)/") else { return }
+        let userId: String = "123"
+        guard let url = URL(string:"wss://luckyspalworldserver.com/ws/\(urlString)/?\(userId)") else { return }
         webSocketTask = urlSession.webSocketTask(with: url)
         webSocketTask?.resume()
         sleep(1)
